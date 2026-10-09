@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Deus Tap — Digital Contact Card",
+  "short_name": "Deus Tap",
+  "description": "Tap, save and exchange professional contacts",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101517",
+  "theme_color": "#101517",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

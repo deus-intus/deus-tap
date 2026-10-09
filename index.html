@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12171a"><meta name="description" content="Deus Tap — exchange business details in a tap. No app download, no subscription.">
+<title>Deus Tap | Anthon Linton</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/svg+xml" href="./icon.svg">
+<meta property="og:title" content="Anthon Linton · Deus Intus"><meta property="og:description" content="Let's connect. Save my details or exchange yours.">
+<style>
+:root{--bg:#101517;--panel:#192124;--panel2:#202a2c;--gold:#d6bd87;--text:#f3f3f0;--muted:#a5b0ae;--line:#344344;color-scheme:dark;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 50% -20%,#35403c 0%,#101517 47%);min-height:100svh}
+main{width:min(100%,480px);margin:0 auto;padding:26px 20px 52px}.mast{display:flex;justify-content:space-between;align-items:center;padding:6px 0 28px}.wordmark{font-size:.9rem;letter-spacing:.18em;font-weight:750}.wordmark em{color:var(--gold);font-style:normal}.badge{color:var(--muted);border:1px solid var(--line);font-size:.68rem;padding:7px 10px;border-radius:100px;letter-spacing:.08em}
+.intro{margin:10px 0 20px;color:var(--muted);font-size:.84rem;letter-spacing:.17em;text-transform:uppercase}
+.card{background:linear-gradient(136deg,#2b3535 0%,#181e20 58%,#111718 100%);border:1px solid #4c5150;border-radius:24px;min-height:247px;box-shadow:0 22px 64px #0007;position:relative;overflow:hidden;padding:28px 27px 26px}
+.card:before{content:"";position:absolute;width:290px;height:290px;right:-120px;top:-140px;border:1px solid #ae9a7136;border-radius:50%;box-shadow:0 0 0 47px #ae9a7112,0 0 0 92px #ae9a7109}
+.card .brand{display:flex;align-items:center;gap:11px;position:relative;color:var(--gold);letter-spacing:.12em;font-size:.75rem;font-weight:800}.sigil{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;font-family:Georgia,serif;font-size:1rem;letter-spacing:0}
+.card .identity{position:relative;margin-top:61px}.card h1{font-size:2rem;font-weight:610;line-height:1.15;letter-spacing:-.045em;margin:0 0 9px}.card p{margin:0;color:var(--gold);font-size:.94rem}.card .url{position:absolute;right:0;bottom:0;color:#c4c9c4;font-size:.69rem}
+.micro{font-size:.83rem;color:var(--muted);line-height:1.5;margin:23px 0}.tabs{display:grid;grid-template-columns:1fr 1fr;background:#1a2224;border:1px solid #364142;padding:4px;gap:4px;border-radius:14px;margin:26px 0 19px}
+.tabs button{border:0;border-radius:11px;padding:13px 5px;background:transparent;color:var(--muted);font-weight:650;font-size:.87rem}.tabs button[aria-selected=true]{background:#353f3d;color:#fff}
+.panel{display:none}.panel.active{display:block}.button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--gold);color:#171a1b;text-decoration:none;border:0;border-radius:14px;padding:17px 15px;font-size:.96rem;font-weight:730;cursor:pointer;margin:11px 0;min-height:54px}
+.button:focus-visible,.tabs button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #e4d5ae;outline-offset:2px}
+.button.alt{background:var(--panel);border:1px solid var(--line);color:var(--text)}.button.slim{padding:13px;margin-top:10px}
+.small{font-size:.8rem;color:var(--muted);text-align:center;line-height:1.55;margin:15px auto;max-width:360px}
+.inline{display:flex;gap:8px}.inline .button{flex:1;font-size:.85rem}
+h2{font-size:1.43rem;letter-spacing:-.04em;font-weight:600;margin:0 0 9px}label{font-size:.83rem;color:#d6dddd;display:block;margin:16px 0 7px}input,textarea{width:100%;min-height:49px;background:#192123;color:white;border:1px solid #465051;border-radius:11px;font:inherit;font-size:.97rem;padding:12px}textarea{resize:vertical;min-height:85px}input::placeholder,textarea::placeholder{color:#7a8989}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:18px 0}.consent input{width:19px;min-height:19px;height:19px;accent-color:var(--gold);flex:none;margin:2px 0}.consent label{margin:0;line-height:1.5;font-size:.82rem;color:var(--muted)}
+.hidden{position:absolute!important;left:-9999px!important;opacity:0!important;pointer-events:none!important}#status{min-height:20px;margin:12px 0;line-height:1.5;font-size:.85rem}#status[data-state=error]{color:#ffa6a6}#status[data-state=ok]{color:#b9e9cf}
+#qrWrap{display:none;background:white;border-radius:17px;padding:19px;margin:14px auto 0;width:min(100%,245px);text-align:center;color:#182022}#qrWrap img{width:100%;height:auto;aspect-ratio:1;display:block}#qrWrap p{margin:7px 0 0;color:#333;font-size:.74rem}
+footer{text-align:center;margin:42px 0 10px;color:#7d8989;font-size:.72rem}footer a{color:#d6bd87}.muted-note{color:var(--muted);font-size:.76rem;margin:4px 0}
+@media(max-width:350px){.card{padding:23px 18px}.card h1{font-size:1.7rem}.two{grid-template-columns:1fr}.card .url{display:none}}
+@media(prefers-reduced-motion:no-preference){.card{animation:appear .55s ease-out}@keyframes appear{from{transform:translateY(9px);opacity:0}to{opacity:1;transform:none}}}
+</style></head>
+<body><main>
+<header class="mast"><span class="wordmark">DEUS <em>INTUS</em></span><span class="badge">DEUS TAP</span></header>
+<p class="intro">A connection worth keeping</p>
+<section class="card" aria-label="Anthon Linton's digital business card">
+<div class="brand"><span class="sigil">D</span><span>DEUS INTUS</span></div>
+<div class="identity"><h1>Anthon Linton</h1><p>Founder · Deus Intus</p></div><span class="url">deusintus.com</span>
+</section>
+<div class="tabs" role="tablist" aria-label="Contact card options">
+<button id="tab-card" role="tab" aria-selected="true" aria-controls="panel-card">My card</button>
+<button id="tab-exchange" role="tab" aria-selected="false" aria-controls="panel-exchange">Exchange details</button>
+</div>
+<section id="panel-card" class="panel active" role="tabpanel" aria-labelledby="tab-card">
+<p class="micro">Great to meet you. Save my contact or share yours below, and we'll stay connected.</p>
+<button class="button" id="saveBtn" type="button">↓ &nbsp; Save to contacts</button>
+<button class="button alt" id="exchangeBtn" type="button">↗ &nbsp; Exchange your details</button>
+<div class="inline"><button class="button alt slim" id="shareBtn" type="button">Share card</button><button class="button alt slim" id="qrBtn" type="button">Show QR code</button></div>
+<div id="qrWrap"><img id="qrImage" src="./qr.svg" alt="QR code linking to this digital business card"><p>Scan to open my card</p></div>
+<p class="small">No download required to view this card. One tap or scan connects us.</p>
+</section>
+<section id="panel-exchange" class="panel" role="tabpanel" aria-labelledby="tab-exchange">
+<h2>Let's exchange details.</h2><p class="muted-note">Your contact goes directly to my private Deus Intus lead inbox.</p>
+<form id="exchangeForm" novalidate>
+<label for="fullname">Your name *</label><input id="fullname" name="name" autocomplete="name" placeholder="Full name" required maxlength="100">
+<div class="two"><div><label for="mobile">Mobile number</label><input id="mobile" name="phone" type="tel" autocomplete="tel" placeholder="+44 ..." maxlength="40"></div><div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" maxlength="200"></div></div>
+<p class="muted-note">Provide a phone number or an email address (or both).</p>
+<label for="company">Company</label><input id="company" name="company" autocomplete="organization" placeholder="Company / organisation" maxlength="120">
+<label for="notes">What did we discuss?</label><textarea id="notes" name="notes" placeholder="A quick reminder, if helpful" maxlength="500"></textarea>
+<div class="hidden" aria-hidden="true"><label for="fax">Leave blank</label><input name="fax" id="fax" type="text" tabindex="-1" autocomplete="off"></div>
+<div class="consent"><input type="checkbox" name="share_contact" id="consent" value="yes" required><label for="consent">I agree to share these contact details with Deus Intus for follow-up about our conversation. I can request deletion using the privacy notice.</label></div>
+<button class="button" type="submit" id="submitBtn">Share my contact</button><p id="status" role="status" aria-live="polite"></p>
+</form>
+<p class="small">We use your details only for professional follow-up. We never sell contact information. <a href="./privacy.html">Privacy notice</a>.</p>
+</section>
+<footer>Awaken the power within &nbsp;·&nbsp; <a href="https://www.deusintus.com/" target="_blank" rel="noopener">deusintus.com</a></footer>
+</main>
+<script type="module">
+import {owner,publicUrl,contactVCard,validateContact} from './logic.mjs';
+const $=id=>document.getElementById(id);
+const openTab=tab=>{for(const type of ['card','exchange']){$('tab-'+type).setAttribute('aria-selected',String(type===tab));$('panel-'+type).classList.toggle('active',type===tab);}if(tab==='exchange')$('fullname').focus();};
+$('tab-card').addEventListener('click',()=>openTab('card'));$('tab-exchange').addEventListener('click',()=>openTab('exchange'));$('exchangeBtn').addEventListener('click',()=>openTab('exchange'));
+function downloadVCard(){const blob=new Blob([contactVCard(owner)],{type:'text/vcard;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Anthon-Linton-Deus-Intus.vcf';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);}
+$('saveBtn').addEventListener('click',downloadVCard);
+$('shareBtn').addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title:'Anthon Linton · Deus Intus',text:'Let’s connect',url:publicUrl});return;}catch(e){if(e.name==='AbortError')return;}}try{await navigator.clipboard.writeText(publicUrl);$('shareBtn').textContent='Link copied';setTimeout(()=>$('shareBtn').textContent='Share card',2000);}catch{window.prompt('Copy your card link',publicUrl);}});
+$('qrBtn').addEventListener('click',()=>{const el=$('qrWrap');const visible=el.style.display==='block';el.style.display=visible?'none':'block';$('qrBtn').textContent=visible?'Show QR code':'Hide QR code';});
+$('exchangeForm').addEventListener('submit',async event=>{event.preventDefault();const status=$('status'),btn=$('submitBtn');const d=Object.fromEntries(new FormData(event.currentTarget));const {ok,data}=validateContact(d);if(!ok){status.dataset.state='error';status.textContent='Please enter your name, a valid email or number, and tick the consent box.';return;}
+status.dataset.state='';status.textContent='Saving your details…';btn.disabled=true;
+try{const res=await fetch('https://n8n.deusintus.com/webhook/deus-tap-exchange-v1',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:new URLSearchParams(data),cache:'no-store'});const result=await res.json();if(!res.ok||result.saved!==true)throw Error(result.error||'Contact not saved. Please try again.');status.dataset.state='ok';status.textContent='Your details have been saved. Thanks for connecting!';event.currentTarget.reset();}catch(e){status.dataset.state='error';status.textContent=e.message||'Unable to save at present. Please retry.';}finally{btn.disabled=false;}});
+if('serviceWorker'in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
+</script></body></html>
